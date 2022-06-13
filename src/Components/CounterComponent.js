@@ -12,7 +12,7 @@ function Counter({resetValue}){
     <h3>{countValue}</h3>
     <button type="button" onClick={ handlePlus }>+</button>
     <button type="button" onClick={ handleSubs }>-</button>
-    <button type="button" onClick={ handleRese }>Rst</button>
+    <button type="button" onClick={ handleRese }>Rest</button>
   </>
   );
 }
