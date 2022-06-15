@@ -9,7 +9,7 @@ function App() {
     <div className="App">
     <h1>Git Learning App</h1>
     <Counter
-      resetValue = { 10 }
+      resetValue = { 5 }
     />
 	  <LstElmnt />
     </div>
