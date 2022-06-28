@@ -1,6 +1,6 @@
 import React from 'react';
 import Counter from './Components/CounterComponent';
-import LstElmnt from '/Components/ListElementComponent';
+import LstElmnt from './Components/ListElementComponent';
 import './App.css';
 
 function App() {
@@ -11,7 +11,9 @@ function App() {
     <Counter
       resetValue = { 5 }
     />
-	  <LstElmnt />
+	  <LstElmnt
+      initValue = { 0 }
+    />
     </div>
   );
 }
