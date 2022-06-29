@@ -1,6 +1,13 @@
 .App {
-  color: white;
-  text-align: center;
-  background-color: #4A1D2E;
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+h1{
+  color: white;
+  background-color: #4A1D2E;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding-bottom: 2px;
 }

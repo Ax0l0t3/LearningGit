@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './ListElementComponent.css'
 
 function LstElmnt({ initValue }){
 	
@@ -19,11 +20,20 @@ function LstElmnt({ initValue }){
   
 	return(
 		<>
-			<button type='button' onClick={ handleAdd }>Add</button>
-      <button type='button' onClick={ handleSbs }>Sbs</button>
-      {
-        chowElement.map(( id ) => <p key={id.toString()} > {id} </p>)
-      }
+      <div className="textInputs">
+        <input type="text" placeholder="Type Task" />
+        <button type='button' className="AddButton" onClick={ handleAdd }>Add</button>
+      </div>
+      <div className="Task">
+        <p>Tasks To Do000000</p>
+        {
+          chowElement.map(( id ) =>
+          <div className="ListElemento" key={id.toString()}>
+            <p className="peragraph"> Task {id} </p>
+            <button type='button' className="SbsButton" onClick={ handleSbs }>Sbs</button>
+          </div>)
+        }
+      </div>
 		</>
 	);
 }
