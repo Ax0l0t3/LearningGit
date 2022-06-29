@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './CounterComponent.css';
 
 function Counter({resetValue}){
   
@@ -8,12 +9,14 @@ function Counter({resetValue}){
   const handleRese = () => setCountValue( resetValue );
   
   return(
-  <>
+  <div className="CounterElement">
     <h3>{countValue}</h3>
-    <button type="button" onClick={ handlePlus }>+</button>
-    <button type="button" onClick={ handleSubs }>-</button>
-    <button type="button" onClick={ handleRese }>Rest</button>
-  </>
+    <div className="Buttons">
+      <button type="button" onClick={ handlePlus }>+</button>
+      <button type="button" onClick={ handleSubs }>-</button>
+      <button type="button" onClick={ handleRese }>Rest</button>
+    </div>
+  </div>
   );
 }
 
