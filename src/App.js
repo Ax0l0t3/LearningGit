@@ -7,9 +7,7 @@ function App() {
   return (
     <div className="App">
       <h1>Git Learning App</h1>
-        <LstElmnt
-          initValue = { 0 }
-        />
+      <LstElmnt />
     </div>
   );
 }

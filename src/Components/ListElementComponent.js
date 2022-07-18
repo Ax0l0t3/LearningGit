@@ -1,38 +1,33 @@
 import React, { useState } from 'react';
-import './ListElementComponent.css'
+import ToDoList from './ToDoComponent';
+import HoldList from './HoldComponent';
+import DoneList from './DoneComponent';
+import './ListElementComponent.css';
 
-function LstElmnt({ initValue }){
-	
-  const [chowElement, setChowElement] = useState([]);
-  const [newValue, setNewValue] = useState( initValue );
+function LstElmnt() {
   
-	const handleAdd = () =>{
-    setNewValue ( newValue + 1 );
-    setChowElement ( [ ...chowElement, newValue ] );
+  const [task, setTask] = useState ('');
+  const [taskArray, setTaskArray] = useState([]);
+  const handleClick = () => {
+    setTaskArray( [...taskArray, task] );
+    setTask('');
+  }
+	const handleChange = x => {
+    setTask( x.target.value );
   };
-  const handleSbs = () =>{
-    setNewValue ( newValue - 1 );
-    chowElement.shift();
-    setChowElement ( [ ...chowElement ] );  
-  };
-  
-  console.log(chowElement);
   
 	return(
 		<>
       <div className="textInputs">
-        <input type="text" placeholder="Type Task" />
-        <button type='button' className="AddButton" onClick={ handleAdd }>Add</button>
+        <input type="text" placeholder="Type Task" onChange={ handleChange } value={task}/>
+        <button type='button' className="AddButton" onClick={ handleClick }>Add</button>
       </div>
-      <div className="Task">
-        <p>Tasks To Do000000</p>
-        {
-          chowElement.map(( id ) =>
-          <div className="ListElemento" key={id.toString()}>
-            <p className="peragraph"> Task {id} </p>
-            <button type='button' className="SbsButton" onClick={ handleSbs }>Sbs</button>
-          </div>)
-        }
+      <div className="Tasks">
+        <ToDoList
+          listValues = {taskArray}
+        />
+        <HoldList />
+        <DoneList />
       </div>
 		</>
 	);

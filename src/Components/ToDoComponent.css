@@ -1,0 +1,9 @@
+.toDoLis{
+  display: flex;
+  box-shadow: 1px 3px 6px #545575;
+  flex-direction: column;
+}
+
+.task{
+  margin-left: .5rem;
+}

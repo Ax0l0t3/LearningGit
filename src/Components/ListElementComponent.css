@@ -20,22 +20,8 @@ input{
   display: flex;
 }
 
-.Task{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 33%;
-  margin: 5px;
-  box-shadow: 0 0 3px #6B4545;
-}
-
-.ListElemento{
-  width: 100%;
+.Tasks{
   display: flex;
   justify-content: space-around;
-  margin: 0;
-}
-
-.peragraph{
-  margin: 0;
+  margin: 5px;
 }
