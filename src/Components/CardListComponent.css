@@ -1,4 +1,4 @@
-.toDoLis{
+.ListStyle{
   margin: 0 0.25rem;
   width: 25%;
   height: min-content;
@@ -6,10 +6,6 @@
   background-color: #B3521E;
   border-radius: 10px 10px 0 0;
   flex-direction: column;
-}
-
-.task{
-  margin-left: .5rem;
 }
 
 .toDoTitle{
