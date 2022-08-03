@@ -44,10 +44,6 @@ function LstElmnt() {
   
 	return(
 		<>
-      <div className="textInputs">
-        <input type="text" placeholder="Type Task" onChange={ handleChange } value={task}/>
-        <button type='button' className="AddButton" onClick={ handleClick }>Add</button>
-      </div>
       <div className="Tasks">
         {/*To Do List*/}
           <CardList

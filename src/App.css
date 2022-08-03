@@ -1,7 +1,18 @@
 .App {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   color: #5e313fff;
+}
+
+.Titles{
+  display: flex;
+  justify-content: space-between;
+}
+
+.Cards{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 h1{
@@ -21,7 +32,7 @@ p{
   align-self: center;
   margin-top: 5rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 25.75rem;
   height: 3.56rem;
@@ -40,11 +51,11 @@ p{
   color: #5e313f;
   display: flex;
   align-items: center;
+  width: inherit;
 }
 
 input::placeHolder{
   font-family: 'Zen Maru Gothic', sans-serif;
-  font-size: 1.5rem;
   color: #9edbe8ff;
   margin-left: 1rem;
   align-items: center;
@@ -52,4 +63,8 @@ input::placeHolder{
 
 input:focus{
   outline: none;
+}
+
+svg:hover{
+  fill: "white";
 }

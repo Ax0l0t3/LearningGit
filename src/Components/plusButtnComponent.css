@@ -1,3 +1,7 @@
 .plusButton{
   margin: 0.375rem;
 }
+
+svg:hover{
+  fill: "white";
+}
