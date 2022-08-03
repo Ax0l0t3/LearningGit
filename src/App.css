@@ -1,13 +1,70 @@
 .App {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  color: #5e313fff;
 }
+
+.Titles{
+  display: flex;
+  justify-content: space-between;
+}
+
+.Cards{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 h1{
-  color: white;
-  background-color: #B31B41;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding-bottom: 2px;
+  font-family: 'Jaldi', sans-seriff;
+  font-size: 3em;
+  padding-left: 7rem;
+}
+
+p{
+  font-family: 'Jaldi', sans-seriff;
+  font-size: 1.25em;
+  margin: 1rem 1.5rem;
+}
+
+.inputDiv{
+  background-color: #9edbe8ff;
+  align-self: center;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 25.75rem;
+  height: 3.56rem;
+  border-radius: 1rem;
+}
+
+.inputTask{
+  height: 2.5rem;
+  box-shadow: none;
+  border: none;
+  padding: 0 0 0 1rem;
+  margin-left: 0.55rem;
+  border-radius: 0.75rem;
+  font-size: 1.5rem;
+  font-family: 'Jaldi', sans-seriff;
+  color: #5e313f;
+  display: flex;
+  align-items: center;
+  width: inherit;
+}
+
+input::placeHolder{
+  font-family: 'Zen Maru Gothic', sans-serif;
+  color: #9edbe8ff;
+  margin-left: 1rem;
+  align-items: center;
+}
+
+input:focus{
+  outline: none;
+}
+
+svg:hover{
+  fill: "white";
 }
