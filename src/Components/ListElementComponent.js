@@ -16,12 +16,18 @@ function LstElmnt() {
   };
   
   const handleClick = () => {
+    const getRandomIntInclusive = (min, max) => {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
+    };
     const taskObject = {
-      id: `${ task.length }-${ task.slice(0,3) }`,
+      id: `${ task.length }-${ task.slice(0,3) }-${ getRandomIntInclusive( 0, task.length ) }`,
       value: task,
       progress: 'ToDo'
     };
     setTaskArray( [...taskArray, taskObject] );
+    console.log('taskArray', taskArray);
     setTask('');
   };
   
@@ -44,37 +50,41 @@ function LstElmnt() {
       </div>
       <div className="Tasks">
         {/*To Do List*/}
-        <CardList
-          className="todoClassName"
-          valuesList = {taskArray}
-          setValuesList = {setTaskArray}
-          optionsList = { toDoList }
-          headerTitle = "To Do Tasks"
-        />
+          <CardList
+            listStyle="todoClassName"
+            classNameHeader="toDoHeaderStyle"
+            valuesList = {taskArray}
+            setValuesList = {setTaskArray}
+            optionsList = { toDoList }
+            headerTitle = "To Do Tasks"
+          />
         {/*In Progress List*/}
-        <CardList
-          className="inprogClassName"
-          valuesList = {taskArray}
-          setValuesList = {setTaskArray}
-          optionsList = { progressList }
-          headerTitle = "In Progress"
-        />
+          <CardList
+            listStyle="inprogClassName"
+            classNameHeader="inPrHeaderStyle"
+            valuesList = {taskArray}
+            setValuesList = {setTaskArray}
+            optionsList = { progressList }
+            headerTitle = "In Progress"
+          />
         {/*In Hold List*/}
-        <CardList
-          className="inholdClassName"
-          valuesList = {taskArray}
-          setValuesList = {setTaskArray}
-          optionsList = { holdList }
-          headerTitle = "In Hold"
-        />
+          <CardList
+            listStyle="inholdClassName"
+            classNameHeader="inHoHeaderStyle"
+            valuesList = {taskArray}
+            setValuesList = {setTaskArray}
+            optionsList = { holdList }
+            headerTitle = "In Hold"
+          />
         {/*Done List*/}
-        <CardList
-          className="doneClassName"
-          valuesList = {taskArray}
-          setValuesList = {setTaskArray}
-          optionsList = { doneList }
-          headerTitle = "Done Tasks"
-        />
+          <CardList
+            listStyle="doneClassName"
+            classNameHeader="doneHeaderStyle"
+            valuesList = {taskArray}
+            setValuesList = {setTaskArray}
+            optionsList = { doneList }
+            headerTitle = "Done Tasks"
+          />
       </div>
 		</>
 	);
