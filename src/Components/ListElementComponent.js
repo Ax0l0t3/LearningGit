@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CardList from './CardListComponent';
-import './ListElementComponent.css';
+import '../Styles/ListElementComponent.css';
 
 function LstElmnt() {
   

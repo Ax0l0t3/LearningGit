@@ -50,7 +50,7 @@ function App() {
         <h1>Tasks</h1>
         <div className="inputDiv">
           <input className="inputTask" type="text" placeholder="Type Your Task..." onChange={ handleChange } value={ task }/>
-          <div onClick={ handleClick }>
+          <div onClick={ handleClick } >
             <PlusButtn />
           </div>
         </div>

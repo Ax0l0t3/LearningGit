@@ -64,7 +64,3 @@ input::placeHolder{
 input:focus{
   outline: none;
 }
-
-svg:hover{
-  fill: "white";
-}

@@ -1,0 +1,8 @@
+.next{
+  margin: 0 0.375rem;
+}
+
+.next:hover > g > circle{
+  fill: #E85C58;
+  fillOpacity: 1;
+}

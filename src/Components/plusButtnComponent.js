@@ -1,37 +1,41 @@
-import React from 'react';
-import './plusButtnComponent.css';
+import React, { useState } from "react"
+import '../Styles/plusButtnComponent.css';
 
-function PlusButtn(){
+const PlusButtn = () => {
+
+  const [oldRadius, setOldRadius] = useState(19);
+  
+  const handleMouseEnter = () => {
+    setOldRadius(20);
+  };
+  const handleMouseLeave = () => {
+    setOldRadius(19);
+  };
+  
   return (
-    <svg
-        className="plusButton"
-        width="37.795288"
-        height="37.79528"
-        viewBox="0 0 37.795288 37.79528"
-        version="1.1"
-        id="svg5"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnssvg="http://www.w3.org/2000/svg">
-      <defs
-         id="defs2" />
-      <g
-         id="layer1"
-         transform="translate(-877.33409,-127.36293)">
-        <g
-           id="g688">
-          <circle
-             style={{fill:"#e88e64", fillOpacity:1}}
-             id="path2313"
-             cx="896.23175"
-             cy="146.26057"
-             r="18.897638" />
-          <path
-             id="rect2367"
-             style={{fill:"#ffffff", strokeWidth:0.324508}}
-             d="m 896.23256,133.99607 c -1.69869,0 -3.06613,1.36745 -3.06613,3.06613 v 6.13226 h -6.13226 c -1.69868,0 -3.06774,1.36745 -3.06774,3.06612 0,1.69868 1.36906,3.06613 3.06774,3.06613 h 6.13226 v 6.13226 c 0,1.69868 1.36744,3.06613 3.06613,3.06613 1.69868,0 3.06612,-1.36745 3.06612,-3.06613 v -6.13226 h 6.13226 c 1.69868,0 3.06613,-1.36745 3.06613,-3.06613 0,-1.69867 -1.36745,-3.06612 -3.06613,-3.06612 h -6.13226 v -6.13226 c 0,-1.69868 -1.36744,-3.06613 -3.06612,-3.06613 z" />
-        </g>
-      </g>
-    </svg>
+  <svg onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }
+    className="plus"
+    width={43}
+    height={43}
+    viewBox="0 0 11.377 11.377"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g transform="matrix(.26458 0 0 .26458 -231.572 -33.142)">
+      <circle
+        cx={896.732}
+        cy={146.761}
+        r={oldRadius}
+        fill= "#e88e64"
+      />
+      <path
+        style={{
+          fill: "#fff",
+          strokeWidth: 0.324508,
+        }}
+        d="M896.733 134.496a3.06 3.06 0 0 0-3.067 3.066v6.132h-6.132a3.06 3.06 0 0 0-3.068 3.067 3.06 3.06 0 0 0 3.068 3.066h6.132v6.132a3.06 3.06 0 0 0 3.067 3.066 3.06 3.06 0 0 0 3.066-3.066v-6.132h6.132a3.06 3.06 0 0 0 3.066-3.066 3.06 3.06 0 0 0-3.066-3.067h-6.132v-6.132a3.06 3.06 0 0 0-3.066-3.066z"
+      />
+    </g>
+  </svg>
   );
 }
 

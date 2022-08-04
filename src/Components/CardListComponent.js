@@ -1,5 +1,7 @@
 import React from 'react';
-import './CardListComponent.css';
+import NxtButtn from './nxtButtnComponent';
+import DtailsButtn from './dtailsButtnComponent';
+import '../Styles/CardListComponent.css';
 
 function CardList( {
   valuesList,
@@ -46,6 +48,8 @@ function CardList( {
            optionsList.map( passedTask =>
             <div className="TaskContainer">
              <p className="task" keys={ passedTask.id } > { passedTask.value } </p>
+             <DtailsButtn />
+             <NxtButtn />
             </div>
            )
          }
