@@ -3,8 +3,17 @@ import '../Styles/nxtButtnComponent.css';
 
 const NxtButtn = () => {
   
+  const [oldRadius, setOldRadius] = useState(3);
+  
+  const handleMouseEnter = () => {
+    setOldRadius(3.5);
+  };
+  const handleMouseLeave = () => {
+    setOldRadius(3);
+  };
+  
   return (
-    <svg
+    <svg onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }
       className="next"
       width={27}
       height={27}
@@ -19,7 +28,7 @@ const NxtButtn = () => {
           }}
           cx={104.951}
           cy={96.014}
-          r={3}
+          r={oldRadius}
           fill= "#e88e64"
         />
         <path

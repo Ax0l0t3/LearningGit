@@ -1,10 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import '../Styles/dtailsButtnComponent.css';
 
 const DtailsButtn = () => {
   
+  const [oldRadius, setOldRadius] = useState(3);
+  
+  const handleMouseEnter = () => {
+    setOldRadius(3.5);
+  };
+  const handleMouseLeave = () => {
+    setOldRadius(3);
+  };
+  
   return (
-    <svg
+    <svg onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }
     className="dtls"
     width={27}
     height={27}
@@ -19,7 +28,7 @@ const DtailsButtn = () => {
       }}
       cx={3.572}
       cy={3.572}
-      r={3}
+      r={oldRadius}
       fill= "#e88e64"
     />
     <circle
