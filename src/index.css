@@ -7,9 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url("./Images/bitmap06.png");
   background-size: cover;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root{
+  height: 100%;
 }
