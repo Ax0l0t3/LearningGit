@@ -17,6 +17,7 @@ function App() {
   };
   
   const handleClick = () => {
+    if(task === '')return;
     const getRandomIntInclusive = (min, max) => {
       min = Math.ceil(min);
       max = Math.floor(max);
@@ -28,7 +29,6 @@ function App() {
       progress: 'ToDo'
     };
     setTaskArray( [...taskArray, taskObject] );
-    // console.log('taskArray', taskArray);
     setTask('');
   };
   
@@ -42,6 +42,8 @@ function App() {
     setHoldList(holdArray);
     setDoneList(doneArray);
   }, [taskArray]);
+  
+  // console.log('taskArray', taskArray);
   // console.log(task);
   
   return (
@@ -50,7 +52,7 @@ function App() {
         <h1>Tasks</h1>
         <div className="inputDiv">
           <input className="inputTask" type="text" placeholder="Type Your Task..." onChange={ handleChange } value={ task }/>
-          <div onClick={ handleClick }>
+          <div onClick={ handleClick } >
             <PlusButtn />
           </div>
         </div>

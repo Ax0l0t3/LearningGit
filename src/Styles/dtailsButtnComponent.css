@@ -1,0 +1,13 @@
+.dtls{
+  margin: 0 0.375rem;
+}
+
+.dtls:hover > .crcle{
+  fill: #E85C58;
+  fillOpacity: 1;
+}
+
+.dtls:active > .crcle{
+  fill: #249C8F;
+  fillOpacity: 1;
+}

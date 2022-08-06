@@ -4,10 +4,10 @@
   flex-direction: column;
   background-color: #9edbe8ff;
   border-radius: 0.4rem;
-  width: 18.5rem;
+  width: 25%;
   height: min-content;
   overflow-y: auto;
-  max-height: 29.31rem;
+  max-height: 100%;
   margin: 2rem 1.4rem;
   font-family: 'Nunito', sans-seriff;
   font-size: 1.25rem;
@@ -15,7 +15,7 @@
 }
 
 .TasksBody{
-  width: 16.6rem;
+  width: 90%;
 }
 
 .TaskContainer{
@@ -28,9 +28,19 @@
   white-space: nowrap;
   font-size: 1rem;
   color: #5e313fff;
+  justify-content: space-between;
 }
 
 .task{
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 52%;
+  max-width: 52%;
+  margin: 0 1rem;
+}
+
+.bttnsCntner{
+  display: flex;
+  padding-top: .5rem;
+  align-items: center;
 }

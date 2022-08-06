@@ -1,0 +1,13 @@
+.doneB{
+  margin: 0 0.375rem;
+}
+
+.doneB:hover > g > circle{
+  fill: #41E876;
+  fillOpacity: 1;
+}
+
+.doneB:active > g > circle{
+  fill: #ECA2A0;
+  fillOpacity: 1;
+}
