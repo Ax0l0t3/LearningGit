@@ -4,7 +4,7 @@
   flex-direction: column;
   background-color: #9edbe8ff;
   border-radius: 0.4rem;
-  width: 18.5rem;
+  width: 25%;
   height: min-content;
   overflow-y: auto;
   max-height: 29.31rem;
@@ -36,4 +36,10 @@
   text-overflow: ellipsis;
   max-width: 8.56rem;
   margin: 0 1rem;
+}
+
+.bttnsCntner{
+  display: flex;
+  padding-top: .5rem;
+  align-items: center;
 }

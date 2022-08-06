@@ -1,7 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import '../Styles/nxtButtnComponent.css';
 
-const NxtButtn = () => {
+export const NxtButtn = () => {
   
   const [oldRadius, setOldRadius] = useState(3);
   
@@ -43,4 +43,3 @@ const NxtButtn = () => {
   );
 }
 
-export default NxtButtn;

@@ -28,7 +28,6 @@ function App() {
       progress: 'ToDo'
     };
     setTaskArray( [...taskArray, taskObject] );
-    // console.log('taskArray', taskArray);
     setTask('');
   };
   
@@ -42,6 +41,8 @@ function App() {
     setHoldList(holdArray);
     setDoneList(doneArray);
   }, [taskArray]);
+  
+  // console.log('taskArray', taskArray);
   // console.log(task);
   
   return (

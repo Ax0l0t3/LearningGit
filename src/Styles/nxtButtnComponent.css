@@ -6,3 +6,8 @@
   fill: #E85C58;
   fillOpacity: 1;
 }
+
+.next:active > g > circle{
+  fill: #249C8F;
+  fillOpacity: 1;
+}

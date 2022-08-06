@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import '../Styles/dtailsButtnComponent.css';
 
-const DtailsButtn = () => {
+export const DtailsButtn = () => {
   
   const [oldRadius, setOldRadius] = useState(3);
   
@@ -61,5 +61,3 @@ const DtailsButtn = () => {
   </svg>
   );
 }
-
-export default DtailsButtn;
