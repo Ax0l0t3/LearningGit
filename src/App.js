@@ -17,6 +17,7 @@ function App() {
   };
   
   const handleClick = () => {
+    if(task === '')return;
     const getRandomIntInclusive = (min, max) => {
       min = Math.ceil(min);
       max = Math.floor(max);
