@@ -34,7 +34,8 @@
 .task{
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 8.56rem;
+  width: 52%;
+  max-width: 52%;
   margin: 0 1rem;
 }
 
