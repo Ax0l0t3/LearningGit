@@ -1,0 +1,19 @@
+.modal{
+  position: fixed;
+  top: 37%;
+  left: 40%;
+  padding: 50px;
+  border-radius: 0.4rem;
+  background-color: blue;
+  zIndex: 1000;
+}
+
+.backgrnd{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0A030F50;
+  zIndex: 1000;
+}

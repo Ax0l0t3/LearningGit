@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CardList from './Components/CardListComponent';
 import PlusButtn from './Components/plusButtnComponent';
+import {Modal} from './Components/modalComponent';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [progressList, setProgressList] = useState([]);
   const [holdList, setHoldList] = useState([]);
   const [doneList, setDoneList] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
   
   const handleChange = x => {
     setTask( x.target.value );
@@ -31,6 +33,9 @@ function App() {
     setTaskArray( [...taskArray, taskObject] );
     setTask('');
   };
+
+  const handleOpen = () => setOpenModal(true);
+  const handleClose = () => setOpenModal(false);
   
   useEffect( () => {
     const toDoArray = taskArray.filter( h => h.progress === 'ToDo');
@@ -58,6 +63,8 @@ function App() {
         </div>
         <p>TL4K4® 2022©</p>
       </div>
+	    <button type="button" onClick={ handleOpen } >Modal</button>
+	    <Modal modalStatus={openModal} handleCloseProp={ handleClose }/>
       <div className="Cards">
         {/*To Do List*/}
           <CardList
@@ -93,3 +100,4 @@ function App() {
 }
 
 export default App;
+
