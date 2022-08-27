@@ -64,7 +64,7 @@ function App() {
         <p>TL4K4® 2022©</p>
       </div>
 	    <button type="button" onClick={ handleOpen } >Modal</button>
-	    <Modal modalStatus={openModal} handleCloseProp={ handleClose }/>
+	    <Modal modalStatus={openModal} handleCloseProp={ handleClose } />
       <div className="Cards">
         {/*To Do List*/}
           <CardList

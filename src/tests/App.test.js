@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import {jest} from '@jest/globals';
-import App from '../src/App';
+import App from '../App';
 
 test('renders learn react link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  const linkElement = screen.getByRole('heading', {name: 'Tasks Done'});
   expect(linkElement).toBeInTheDocument();
 });
