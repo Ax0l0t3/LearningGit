@@ -10,6 +10,8 @@ function CardList( {
   setValuesList,
   optionsList,
   headerTitle,
+  modalStatus,
+  handleOpenProp
 } ){
   
   const handleForward = x => {
@@ -104,7 +106,7 @@ function CardList( {
              </div>
              <p className="task" keys={ passedTask.id } > { passedTask.value } </p>
              <div className="bttnsCntner">
-                <div ><DtailsButtn /></div>
+                <div onClick={ () => handleOpenProp(passedTask.value) }><DtailsButtn /></div>
                 <div onClick={ () => handleForward(passedTask) }>
                   {
                     passedTask.progress !== "Done"

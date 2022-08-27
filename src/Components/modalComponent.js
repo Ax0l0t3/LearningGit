@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import '../Styles/modalComponent.css';
 
-export function Modal ({ modalStatus, handleCloseProp }){
+export function Modal ({ modalStatus, handleCloseProp, modalTaskProp }){
   if(modalStatus === false) return;
 	return ReactDom.createPortal(
     <div className="backgrnd">
       <div className="modal">
         <div className="modalHead">
-          <h2 className="modalTitle">Design Headgear for ABSA</h2>
+          <h2 className="modalTitle">{modalTaskProp}</h2>
           <div className="modalList">
             <p>Selected</p>
             {/*<ul>

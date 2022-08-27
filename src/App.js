@@ -13,6 +13,7 @@ function App() {
   const [holdList, setHoldList] = useState([]);
   const [doneList, setDoneList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [modalTask, setModalTask] = useState('');
   
   const handleChange = x => {
     setTask( x.target.value );
@@ -34,7 +35,10 @@ function App() {
     setTask('');
   };
 
-  const handleOpen = () => setOpenModal(true);
+  const handleOpen = modalTask => {
+    setOpenModal(true);
+    setModalTask(modalTask);
+  }
   const handleClose = () => setOpenModal(false);
   
   useEffect( () => {
@@ -63,8 +67,7 @@ function App() {
         </div>
         <p className="tradeMark">TL4K4® 2022©</p>
       </div>
-	    <button type="button" onClick={ handleOpen } >Modal</button>
-	    <Modal modalStatus={openModal} handleCloseProp={ handleClose } />
+	    <Modal modalStatus={openModal} handleCloseProp={ handleClose } modalTaskProp={ modalTask }/>
       <div className="Cards">
         {/*To Do List*/}
           <CardList
@@ -72,6 +75,8 @@ function App() {
             valuesList = {taskArray}
             setValuesList = {setTaskArray}
             optionsList = { toDoList }
+            modalStatus = { openModal }
+            handleOpenProp={ handleOpen }
           />
         {/*In Progress List*/}
           <CardList
@@ -79,6 +84,8 @@ function App() {
             valuesList = {taskArray}
             setValuesList = {setTaskArray}
             optionsList = { progressList }
+            modalStatus = { openModal }
+            handleOpenProp={ handleOpen }
           />
         {/*In Hold List*/}
           <CardList
@@ -86,6 +93,8 @@ function App() {
             valuesList = {taskArray}
             setValuesList = {setTaskArray}
             optionsList = { holdList }
+            modalStatus = { openModal }
+            handleOpenProp={ handleOpen }
           />
         {/*Done List*/}
           <CardList
@@ -93,6 +102,8 @@ function App() {
             valuesList = {taskArray}
             setValuesList = {setTaskArray}
             optionsList = { doneList }
+            modalStatus = { openModal }
+            handleOpenProp={ handleOpen }
           />
       </div>
     </div>
