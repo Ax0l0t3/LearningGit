@@ -26,7 +26,7 @@ function App() {
       return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     };
     const taskObject = {
-      id: `${ task.length }-${ task.slice(0,3) }-${ getRandomIntInclusive( 0, task.length ) }`,
+      id: `${ task.length }-${ task.slice(0,3) }-${ getRandomIntInclusive( 0, task.length )}-${ getRandomIntInclusive( 1, task.length ) }`,
       value: task,
       progress: 'ToDo'
     };
@@ -61,7 +61,7 @@ function App() {
             <PlusButtn />
           </div>
         </div>
-        <p>TL4K4® 2022©</p>
+        <p className="tradeMark">TL4K4® 2022©</p>
       </div>
 	    <button type="button" onClick={ handleOpen } >Modal</button>
 	    <Modal modalStatus={openModal} handleCloseProp={ handleClose } />

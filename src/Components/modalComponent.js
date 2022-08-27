@@ -5,15 +5,26 @@ import '../Styles/modalComponent.css';
 export function Modal ({ modalStatus, handleCloseProp }){
   if(modalStatus === false) return;
 	return ReactDom.createPortal(
-    <div className="backgrnd" onClick={ handleCloseProp }>
-		  <h4 className="modal" >Task</h4>
-      <p>Elemento Seleccionado</p>
-      <ul>
-        <li>Elementos</li>
-      </ul>
-      <input type="text" placeholder="Type your task description..." />
-      // <button type="button">Save</button>
-      // <button type="button">Back</button>
+    <div className="backgrnd">
+      <div className="modal">
+        <div className="modalHead">
+          <h2 className="modalTitle">Design Headgear for ABSA</h2>
+          <div className="modalList">
+            <p>Selected</p>
+            {/*<ul>
+              <li>To Do</li>
+              <li>In Progress</li>
+              <li>In Hold</li>
+              <li>Done</li>
+            </ul>*/}
+          </div>
+        </div>
+        <input type="text" placeholder="Type your task description..." />
+        <div className="modalFooter">
+          <button type="button" className="saveButton">Save</button>
+          <button type="button" className="backButton" onClick={ handleCloseProp }>Back</button>
+        </div>
+      </div>
     </div>,
     document.getElementById('portal')
 	);

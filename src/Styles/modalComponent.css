@@ -1,12 +1,3 @@
-.modal{
-  position: fixed;
-  top: 37%;
-  left: 40%;
-  padding: 50px;
-  border-radius: 0.4rem;
-  background-color: blue;
-  zIndex: 1000;
-}
 
 .backgrnd{
   position: fixed;
@@ -15,5 +6,104 @@
   right: 0;
   bottom: 0;
   background-color: #00000099;
-  zIndex: 1000;
+  z-index: 1000;
+}
+
+.modal{
+  font-family: 'Jaldi', sans-seriff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 41%;
+  height: 71%;
+  border-radius: 1rem;
+  background-color: #9edbe8;
+  z-index: 1000;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  color: #5e313fff;
+}
+
+.modalHead{
+  margin: 1rem 2.5rem 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 20%;
+  align-items: center;
+}
+
+.modalTitle{
+  font-size: 1.5rem;
+}
+
+.modalList{
+  font-size: 1.2rem;
+  overflow-y: visible;
+}
+
+.modalList > p{
+  background-color: #fff7d9ff;
+  border-radius: .5rem;
+  padding-left: 0.5rem;
+  width: 10rem;
+}
+
+.modalList > ul{
+  position: relative;
+  background-color: #fff7d9ff;
+  border-radius: .5rem;
+  padding-left: .5rem;
+  list-style-type: none;
+  margin: 1px 1px;
+}
+
+.modal > input {
+  border: none;
+  border-radius: 0.7rem;
+  margin: 0 2.5rem;
+  height: 65%;
+}
+
+.modalFooter{
+  display: flex;
+  justify-content: center;
+}
+
+.modalFooter > button {
+  color: #5e313f;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 1.2rem;
+  margin: .4rem .5rem;
+  height: 2.375rem;
+  width: 5.8rem;
+  border: none;
+  border-radius: .25rem;
+  box-shadow: 0 0.2rem #5e313f;
+  cursor: pointer;
+}
+
+.modalFooter > button:active{
+  transform: translateY(0.1rem);
+}
+
+.saveButton{
+  background-color: #07eca9ff;
+}
+
+.saveButton:hover{
+  background-color: #04D65C;
+  color: #D6FCFF;
+}
+
+.backButton{
+  background-color: #eba85fff;
+}
+
+.backButton:hover{
+  background-color: #F67A56;
+  color: #FDDDBC;
 }
