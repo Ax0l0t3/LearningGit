@@ -16,25 +16,25 @@ function CardList( {
   
   const handleForward = x => {
     switch(x.progress){
-      case 'ToDo':
+      case 'To Do':
         const progValues = valuesList.map( z => {
           if( z.id === x.id){
-            z.progress = 'InProgress';
+            z.progress = 'In Progress';
           }
           return z;
         });
         setValuesList(progValues);
       break;
-      case 'InProgress':
+      case 'In Progress':
         const holdValues = valuesList.map( z => {
             if( z.id === x.id){
-              z.progress = 'InHold';
+              z.progress = 'In Hold';
             }
             return z;
           });
           setValuesList(holdValues);
       break;
-      case 'InHold':
+      case 'In Hold':
         const doneValues = valuesList.map( z => {
               if( z.id === x.id){
                 z.progress = 'Done';
@@ -44,26 +44,26 @@ function CardList( {
             setValuesList(doneValues);
       break;
       default:
-        console.log('Default', x.progress);
+        console.log('Default');
       break;
     }
   }
   
   const handleBackward = x => {
     switch(x.progress){
-      case 'InProgress':
+      case 'In Progress':
         const progValues = valuesList.map( z => {
           if( z.id === x.id){
-            z.progress = 'ToDo';
+            z.progress = 'To Do';
           }
           return z;
         });
         setValuesList(progValues);
       break;
-      case 'InHold':
+      case 'In Hold':
         const holdValues = valuesList.map( z => {
             if( z.id === x.id){
-              z.progress = 'InProgress';
+              z.progress = 'In Progress';
             }
             return z;
           });
@@ -72,14 +72,14 @@ function CardList( {
       case 'Done':
         const doneValues = valuesList.map( z => {
               if( z.id === x.id){
-                z.progress = 'InHold';
+                z.progress = 'In Hold';
               }
               return z;
             });
             setValuesList(doneValues);
       break;
       default:
-        console.log('Default', x.progress);
+        console.log('Default');
       break;
     }
   }
@@ -99,14 +99,14 @@ function CardList( {
             <div className="TaskContainer">
              <div onClick={ () => handleBackward(passedTask) }>
                {
-                 passedTask.progress !== "ToDo"
+                 passedTask.progress !== "To Do"
                  ? <PrvsButtn />
                  : ''
                }
              </div>
              <p className="task" keys={ passedTask.id } > { passedTask.value } </p>
              <div className="bttnsCntner">
-                <div onClick={ () => handleOpenProp(passedTask.value) }><DtailsButtn /></div>
+                <div onClick={ () => handleOpenProp(passedTask) }><DtailsButtn /></div>
                 <div onClick={ () => handleForward(passedTask) }>
                   {
                     passedTask.progress !== "Done"

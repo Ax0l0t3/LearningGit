@@ -29,7 +29,7 @@ function App() {
     const taskObject = {
       id: `${ task.length }-${ task.slice(0,3) }-${ getRandomIntInclusive( 0, task.length )}-${ getRandomIntInclusive( 1, task.length ) }`,
       value: task,
-      progress: 'ToDo'
+      progress: 'To Do'
     };
     setTaskArray( [...taskArray, taskObject] );
     setTask('');
@@ -42,9 +42,9 @@ function App() {
   const handleClose = () => setOpenModal(false);
   
   useEffect( () => {
-    const toDoArray = taskArray.filter( h => h.progress === 'ToDo');
-    const progressArray = taskArray.filter( h => h.progress === 'InProgress');
-    const holdArray = taskArray.filter( h => h.progress === 'InHold');
+    const toDoArray = taskArray.filter( h => h.progress === 'To Do');
+    const progressArray = taskArray.filter( h => h.progress === 'In Progress');
+    const holdArray = taskArray.filter( h => h.progress === 'In Hold');
     const doneArray = taskArray.filter( h => h.progress === 'Done');
     setToDoList(toDoArray);
     setProgressList(progressArray);

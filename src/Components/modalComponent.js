@@ -8,9 +8,9 @@ export function Modal ({ modalStatus, handleCloseProp, modalTaskProp }){
     <div className="backgrnd">
       <div className="modal">
         <div className="modalHead">
-          <h2 className="modalTitle">{modalTaskProp}</h2>
+          <h2 className="modalTitle">{modalTaskProp.value}</h2>
           <div className="modalList">
-            <p>Selected</p>
+            <p>{modalTaskProp.progress}</p>
             {/*<ul>
               <li>To Do</li>
               <li>In Progress</li>
