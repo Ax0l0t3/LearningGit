@@ -87,6 +87,10 @@
   height: 65%;
 }
 
+.modal > input::placeholder {
+  font-size: 1.7rem;
+}
+
 .modalFooter{
   display: flex;
   justify-content: center;
