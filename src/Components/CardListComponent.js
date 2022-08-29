@@ -6,14 +6,15 @@ import { DoneButtn } from './doneButtnComponent';
 import '../Styles/CardListComponent.css';
 
 function CardList( {
+  columnKey,
   valuesList,
   setValuesList,
   optionsList,
   headerTitle,
   modalStatus,
-  handleOpenProp
+  handleOpenProp,
+  taskReaded
 } ){
-  
   const handleForward = x => {
     switch(x.progress){
       case 'To Do':
@@ -88,45 +89,90 @@ function CardList( {
     const removeValues = valuesList.filter( z => z.id !== x.id );
     setValuesList(removeValues);
   }
-  console.log('valuesList', valuesList);
   
   return (
-     <div className="cardStyle">
-       <h3 className="cardTitle">{ headerTitle }</h3>
-       <div className="TasksBody">
-         {
-           optionsList.map( passedTask =>
-            <div className="TaskContainer">
-             <div onClick={ () => handleBackward(passedTask) }>
-               {
-                 passedTask.progress !== "To Do"
-                 ? <PrvsButtn />
-                 : ''
-               }
-             </div>
-             <p className="task" keys={ passedTask.id } > { passedTask.value } </p>
-             <div className="bttnsCntner">
-                <div onClick={ () => handleOpenProp(passedTask) }><DtailsButtn /></div>
-                <div onClick={ () => handleForward(passedTask) }>
-                  {
-                    passedTask.progress !== "Done"
-                    ? <NxtButtn />
-                    : ''
-                  }
+    <div className="cardStyle">
+      <h3 className="cardTitle">{ headerTitle }</h3>
+      <div className="TasksBody">
+      {
+        valuesList.map( passedTask => {
+          switch(columnKey){
+            case 0:
+            if(passedTask.progress !== 'To Do') return null;
+              return (
+                <div className="TaskContainer">
+                  <p className="task" key={ passedTask.id } > { passedTask.value } </p>
+                  <div className="bttnsCntner">
+                    <div onClick={ () => handleOpenProp(passedTask) }>
+                      <DtailsButtn />
+                    </div>
+                    <div onClick={ () => handleForward(passedTask) }>
+                      <NxtButtn />
+                    </div>
+                  </div>
                 </div>
-                <div onClick={ () => handleDone(passedTask) }>
-                  {
-                    passedTask.progress === "Done"
-                    ? <DoneButtn />
-                    : ''
-                  }
+              );
+            case 1:
+            if(passedTask.progress !== 'In Progress') return null;
+              return (
+                <div className="TaskContainer">
+                  <div onClick={ () => handleBackward(passedTask) }>
+                    <PrvsButtn />
+                  </div>
+                  <p className="task" key={ passedTask.id } > { passedTask.value } </p>
+                  <div className="bttnsCntner">
+                    <div onClick={ () => handleOpenProp(passedTask) }>
+                      <DtailsButtn />
+                    </div>
+                    <div onClick={ () => handleForward(passedTask) }>
+                      <NxtButtn />
+                    </div>
+                  </div>
                 </div>
-             </div>
-            </div>
-           )
-         }
-       </div>
-     </div>
+              );
+            case 2:
+            if(passedTask.progress !== 'In Hold') return null;
+              return (
+                <div className="TaskContainer">
+                  <div onClick={ () => handleBackward(passedTask) }>
+                    <PrvsButtn />
+                  </div>
+                  <p className="task" key={ passedTask.id } > { passedTask.value } </p>
+                  <div className="bttnsCntner">
+                    <div onClick={ () => handleOpenProp(passedTask) }>
+                      <DtailsButtn />
+                    </div>
+                    <div onClick={ () => handleForward(passedTask) }>
+                      <NxtButtn />
+                    </div>
+                  </div>
+                </div>
+              );
+            case 3:
+            if(passedTask.progress !== 'Done') return null;
+              return (
+                <div className="TaskContainer">
+                  <div onClick={ () => handleBackward(passedTask) }>
+                    <PrvsButtn />
+                  </div>
+                  <p className="task" key={ passedTask.id } > { passedTask.value } </p>
+                  <div className="bttnsCntner">
+                    <div onClick={ () => handleOpenProp(passedTask) }>
+                      <DtailsButtn />
+                    </div>
+                    <div onClick={ () => handleDone(passedTask) }>
+                      <DoneButtn />
+                    </div>
+                  </div>
+                </div>
+              );
+            default:
+              return null;
+          }
+        })
+      }
+      </div>
+    </div>
    );
 };
 

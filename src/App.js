@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CardList from './Components/CardListComponent';
 import PlusButtn from './Components/plusButtnComponent';
 import {Modal} from './Components/modalComponent';
@@ -8,12 +8,15 @@ function App() {
   
   const [task, setTask] = useState ('');
   const [taskArray, setTaskArray] = useState([]);
-  const [toDoList, setToDoList] = useState([]);
-  const [progressList, setProgressList] = useState([]);
-  const [holdList, setHoldList] = useState([]);
-  const [doneList, setDoneList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [modalTask, setModalTask] = useState('');
+  const [readedValue, setReadedValue] = useState(false);
+  const cardHeader = [
+    "Tasks To Do",
+    "In Progress",
+    "In Hold",
+    "Tasks Done"
+  ]
   
   const handleChange = x => {
     setTask( x.target.value );
@@ -29,7 +32,8 @@ function App() {
     const taskObject = {
       id: `${ task.length }-${ task.slice(0,3) }-${ getRandomIntInclusive( 0, task.length )}-${ getRandomIntInclusive( 1, task.length ) }`,
       value: task,
-      progress: 'To Do'
+      progress: 'To Do',
+      readed: readedValue
     };
     setTaskArray( [...taskArray, taskObject] );
     setTask('');
@@ -40,20 +44,6 @@ function App() {
     setModalTask(modalTask);
   }
   const handleClose = () => setOpenModal(false);
-  
-  useEffect( () => {
-    const toDoArray = taskArray.filter( h => h.progress === 'To Do');
-    const progressArray = taskArray.filter( h => h.progress === 'In Progress');
-    const holdArray = taskArray.filter( h => h.progress === 'In Hold');
-    const doneArray = taskArray.filter( h => h.progress === 'Done');
-    setToDoList(toDoArray);
-    setProgressList(progressArray);
-    setHoldList(holdArray);
-    setDoneList(doneArray);
-  }, [taskArray,modalTask]);
-  
-  // console.log('taskArray', taskArray);
-  // console.log('onlyTask', task);
   
   return (
     <div className="App">
@@ -73,42 +63,20 @@ function App() {
         modalTaskProp={ modalTask }
       />
       <div className="Cards">
-        {/*To Do List*/}
+      {
+        cardHeader.map( (header, keyHeader) => (
           <CardList
-            headerTitle = "Tasks To Do"
+            key = {keyHeader}
+            columnKey = {keyHeader}
+            taskReaded = {setReadedValue}
+            headerTitle = {header}
             valuesList = {taskArray}
             setValuesList = {setTaskArray}
-            optionsList = { toDoList }
             modalStatus = { openModal }
             handleOpenProp={ handleOpen }
           />
-        {/*In Progress List*/}
-          <CardList
-            headerTitle = "In Progress"
-            valuesList = {taskArray}
-            setValuesList = {setTaskArray}
-            optionsList = { progressList }
-            modalStatus = { openModal }
-            handleOpenProp={ handleOpen }
-          />
-        {/*In Hold List*/}
-          <CardList
-            headerTitle = "In Hold"
-            valuesList = {taskArray}
-            setValuesList = {setTaskArray}
-            optionsList = { holdList }
-            modalStatus = { openModal }
-            handleOpenProp={ handleOpen }
-          />
-        {/*Done List*/}
-          <CardList
-            headerTitle = "Tasks Done"
-            valuesList = {taskArray}
-            setValuesList = {setTaskArray}
-            optionsList = { doneList }
-            modalStatus = { openModal }
-            handleOpenProp={ handleOpen }
-          />
+        ))
+      }
       </div>
     </div>
   );
