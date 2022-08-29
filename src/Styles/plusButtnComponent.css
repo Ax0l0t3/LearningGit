@@ -1,5 +1,6 @@
 .plus{
   margin: 0.375rem;
+  cursor: pointer;
 }
 
 .plus:hover > g > circle{

@@ -6,33 +6,36 @@ import { DoneButtn } from './doneButtnComponent';
 import '../Styles/CardListComponent.css';
 
 function CardList( {
+  columnKey,
   valuesList,
   setValuesList,
   optionsList,
   headerTitle,
+  modalStatus,
+  handleOpenProp,
+  taskReaded
 } ){
-  
   const handleForward = x => {
     switch(x.progress){
-      case 'ToDo':
+      case 'To Do':
         const progValues = valuesList.map( z => {
           if( z.id === x.id){
-            z.progress = 'InProgress';
+            z.progress = 'In Progress';
           }
           return z;
         });
         setValuesList(progValues);
       break;
-      case 'InProgress':
+      case 'In Progress':
         const holdValues = valuesList.map( z => {
             if( z.id === x.id){
-              z.progress = 'InHold';
+              z.progress = 'In Hold';
             }
             return z;
           });
           setValuesList(holdValues);
       break;
-      case 'InHold':
+      case 'In Hold':
         const doneValues = valuesList.map( z => {
               if( z.id === x.id){
                 z.progress = 'Done';
@@ -42,26 +45,26 @@ function CardList( {
             setValuesList(doneValues);
       break;
       default:
-        console.log('Default', x.progress);
+        console.log('Default');
       break;
     }
   }
   
   const handleBackward = x => {
     switch(x.progress){
-      case 'InProgress':
+      case 'In Progress':
         const progValues = valuesList.map( z => {
           if( z.id === x.id){
-            z.progress = 'ToDo';
+            z.progress = 'To Do';
           }
           return z;
         });
         setValuesList(progValues);
       break;
-      case 'InHold':
+      case 'In Hold':
         const holdValues = valuesList.map( z => {
             if( z.id === x.id){
-              z.progress = 'InProgress';
+              z.progress = 'In Progress';
             }
             return z;
           });
@@ -70,14 +73,14 @@ function CardList( {
       case 'Done':
         const doneValues = valuesList.map( z => {
               if( z.id === x.id){
-                z.progress = 'InHold';
+                z.progress = 'In Hold';
               }
               return z;
             });
             setValuesList(doneValues);
       break;
       default:
-        console.log('Default', x.progress);
+        console.log('Default');
       break;
     }
   }
@@ -87,44 +90,89 @@ function CardList( {
     setValuesList(removeValues);
   }
   
-  
   return (
-     <div className="cardStyle">
-       <h3 className="cardTitle">{ headerTitle }</h3>
-       <div className="TasksBody">
-         {
-           optionsList.map( passedTask =>
-            <div className="TaskContainer">
-             <div onClick={ () => handleBackward(passedTask) }>
-               {
-                 passedTask.progress !== "ToDo"
-                 ? <PrvsButtn />
-                 : ''
-               }
-             </div>
-             <p className="task" keys={ passedTask.id } > { passedTask.value } </p>
-             <div className="bttnsCntner">
-                <div ><DtailsButtn /></div>
-                <div onClick={ () => handleForward(passedTask) }>
-                  {
-                    passedTask.progress !== "Done"
-                    ? <NxtButtn />
-                    : ''
-                  }
+    <div className="cardStyle">
+      <h3 className="cardTitle">{ headerTitle }</h3>
+      <div className="TasksBody">
+      {
+        valuesList.map( passedTask => {
+          switch(columnKey){
+            case 0:
+            if(passedTask.progress !== 'To Do') return null;
+              return (
+                <div className="TaskContainer">
+                  <p className="task" key={ passedTask.id } > { passedTask.value } </p>
+                  <div className="bttnsCntner">
+                    <div onClick={ () => handleOpenProp(passedTask) }>
+                      <DtailsButtn />
+                    </div>
+                    <div onClick={ () => handleForward(passedTask) }>
+                      <NxtButtn />
+                    </div>
+                  </div>
                 </div>
-                <div onClick={ () => handleDone(passedTask) }>
-                  {
-                    passedTask.progress === "Done"
-                    ? <DoneButtn />
-                    : ''
-                  }
+              );
+            case 1:
+            if(passedTask.progress !== 'In Progress') return null;
+              return (
+                <div className="TaskContainer">
+                  <div onClick={ () => handleBackward(passedTask) }>
+                    <PrvsButtn />
+                  </div>
+                  <p className="task" key={ passedTask.id } > { passedTask.value } </p>
+                  <div className="bttnsCntner">
+                    <div onClick={ () => handleOpenProp(passedTask) }>
+                      <DtailsButtn />
+                    </div>
+                    <div onClick={ () => handleForward(passedTask) }>
+                      <NxtButtn />
+                    </div>
+                  </div>
                 </div>
-             </div>
-            </div>
-           )
-         }
-       </div>
-     </div>
+              );
+            case 2:
+            if(passedTask.progress !== 'In Hold') return null;
+              return (
+                <div className="TaskContainer">
+                  <div onClick={ () => handleBackward(passedTask) }>
+                    <PrvsButtn />
+                  </div>
+                  <p className="task" key={ passedTask.id } > { passedTask.value } </p>
+                  <div className="bttnsCntner">
+                    <div onClick={ () => handleOpenProp(passedTask) }>
+                      <DtailsButtn />
+                    </div>
+                    <div onClick={ () => handleForward(passedTask) }>
+                      <NxtButtn />
+                    </div>
+                  </div>
+                </div>
+              );
+            case 3:
+            if(passedTask.progress !== 'Done') return null;
+              return (
+                <div className="TaskContainer">
+                  <div onClick={ () => handleBackward(passedTask) }>
+                    <PrvsButtn />
+                  </div>
+                  <p className="task" key={ passedTask.id } > { passedTask.value } </p>
+                  <div className="bttnsCntner">
+                    <div onClick={ () => handleOpenProp(passedTask) }>
+                      <DtailsButtn />
+                    </div>
+                    <div onClick={ () => handleDone(passedTask) }>
+                      <DoneButtn />
+                    </div>
+                  </div>
+                </div>
+              );
+            default:
+              return null;
+          }
+        })
+      }
+      </div>
+    </div>
    );
 };
 

@@ -3,6 +3,8 @@
   flex-direction: column;
   color: #5e313fff;
   height: 100%;
+  font-size: 1.25rem;
+  font-family: 'Jaldi', sans-seriff;
 }
 
 .Titles{
@@ -23,9 +25,7 @@ h1{
   padding-left: 7rem;
 }
 
-p{
-  font-family: 'Jaldi', sans-seriff;
-  font-size: 1.25em;
+.tradeMark{
   margin: 1rem 1.5rem;
 }
 
@@ -66,3 +66,4 @@ input::placeHolder{
 input:focus{
   outline: none;
 }
+

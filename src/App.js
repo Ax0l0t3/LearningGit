@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CardList from './Components/CardListComponent';
 import PlusButtn from './Components/plusButtnComponent';
+import {Modal} from './Components/modalComponent';
 import './App.css';
 
 function App() {
   
   const [task, setTask] = useState ('');
   const [taskArray, setTaskArray] = useState([]);
-  const [toDoList, setToDoList] = useState([]);
-  const [progressList, setProgressList] = useState([]);
-  const [holdList, setHoldList] = useState([]);
-  const [doneList, setDoneList] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [modalTask, setModalTask] = useState('');
+  const [readedValue, setReadedValue] = useState(false);
+  const cardHeader = [
+    "Tasks To Do",
+    "In Progress",
+    "In Hold",
+    "Tasks Done"
+  ]
   
   const handleChange = x => {
     setTask( x.target.value );
@@ -24,27 +30,20 @@ function App() {
       return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
     };
     const taskObject = {
-      id: `${ task.length }-${ task.slice(0,3) }-${ getRandomIntInclusive( 0, task.length ) }`,
+      id: `${ task.length }-${ task.slice(0,3) }-${ getRandomIntInclusive( 0, task.length )}-${ getRandomIntInclusive( 1, task.length ) }`,
       value: task,
-      progress: 'ToDo'
+      progress: 'To Do',
+      readed: readedValue
     };
     setTaskArray( [...taskArray, taskObject] );
     setTask('');
   };
-  
-  useEffect( () => {
-    const toDoArray = taskArray.filter( h => h.progress === 'ToDo');
-    const progressArray = taskArray.filter( h => h.progress === 'InProgress');
-    const holdArray = taskArray.filter( h => h.progress === 'InHold');
-    const doneArray = taskArray.filter( h => h.progress === 'Done');
-    setToDoList(toDoArray);
-    setProgressList(progressArray);
-    setHoldList(holdArray);
-    setDoneList(doneArray);
-  }, [taskArray]);
-  
-  // console.log('taskArray', taskArray);
-  // console.log(task);
+
+  const handleOpen = modalTask => {
+    setOpenModal(true);
+    setModalTask(modalTask);
+  }
+  const handleClose = () => setOpenModal(false);
   
   return (
     <div className="App">
@@ -56,40 +55,32 @@ function App() {
             <PlusButtn />
           </div>
         </div>
-        <p>TL4K4® 2022©</p>
+        <p className="tradeMark">TL4K4® 2022©</p>
       </div>
+	    <Modal
+        modalStatus={openModal}
+        handleCloseProp={ handleClose }
+        modalTaskProp={ modalTask }
+      />
       <div className="Cards">
-        {/*To Do List*/}
+      {
+        cardHeader.map( (header, keyHeader) => (
           <CardList
-            headerTitle = "Tasks To Do"
+            key = {keyHeader}
+            columnKey = {keyHeader}
+            taskReaded = {setReadedValue}
+            headerTitle = {header}
             valuesList = {taskArray}
             setValuesList = {setTaskArray}
-            optionsList = { toDoList }
+            modalStatus = { openModal }
+            handleOpenProp={ handleOpen }
           />
-        {/*In Progress List*/}
-          <CardList
-            headerTitle = "In Progress"
-            valuesList = {taskArray}
-            setValuesList = {setTaskArray}
-            optionsList = { progressList }
-          />
-        {/*In Hold List*/}
-          <CardList
-            headerTitle = "In Hold"
-            valuesList = {taskArray}
-            setValuesList = {setTaskArray}
-            optionsList = { holdList }
-          />
-        {/*Done List*/}
-          <CardList
-            headerTitle = "Tasks Done"
-            valuesList = {taskArray}
-            setValuesList = {setTaskArray}
-            optionsList = { doneList }
-          />
+        ))
+      }
       </div>
     </div>
   );
 }
 
 export default App;
+
