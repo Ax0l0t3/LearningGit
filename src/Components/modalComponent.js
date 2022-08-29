@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDom from 'react-dom';
 import '../Styles/modalComponent.css';
 
@@ -7,6 +7,14 @@ export function Modal ({ modalStatus, handleCloseProp, modalTaskProp }){
   
   const dropdownOpen = () => dropdown === true ? setDropdown(false) : setDropdown(true);
   const dropdownClose = () => { handleCloseProp(); setDropdown(false) }
+  const handleMoveTask = taskValue => {
+    setDropdown(false);
+    return modalTaskProp.progress = taskValue;
+  };
+  
+  // useEffect(() =>{
+    
+  // },[modalTaskProp])
   
   const progressList = [
     "To Do",
@@ -29,12 +37,8 @@ export function Modal ({ modalStatus, handleCloseProp, modalTaskProp }){
                 {
                   progressList.map( (y, key) =>{
                     if( y === modalTaskProp.progress) return <li className="selected" key={key}>{y}</li>
-                    return <li key={key}>{y}</li>
+                    return <li onClick={ () => handleMoveTask(y) }key={key}>{y}</li>
                   })
-                    /*<li>To Do</li>
-                    <li>In Progress</li>
-                    <li>In Hold</li>
-                    <li>Done</li>*/
                 }
                   </ul>
                 : null

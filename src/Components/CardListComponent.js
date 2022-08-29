@@ -88,7 +88,7 @@ function CardList( {
     const removeValues = valuesList.filter( z => z.id !== x.id );
     setValuesList(removeValues);
   }
-  
+  console.log('valuesList', valuesList);
   
   return (
      <div className="cardStyle">

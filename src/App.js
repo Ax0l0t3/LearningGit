@@ -50,10 +50,10 @@ function App() {
     setProgressList(progressArray);
     setHoldList(holdArray);
     setDoneList(doneArray);
-  }, [taskArray]);
+  }, [taskArray,modalTask]);
   
   // console.log('taskArray', taskArray);
-  // console.log(task);
+  // console.log('onlyTask', task);
   
   return (
     <div className="App">
@@ -67,7 +67,11 @@ function App() {
         </div>
         <p className="tradeMark">TL4K4® 2022©</p>
       </div>
-	    <Modal modalStatus={openModal} handleCloseProp={ handleClose } modalTaskProp={ modalTask }/>
+	    <Modal
+        modalStatus={openModal}
+        handleCloseProp={ handleClose }
+        modalTaskProp={ modalTask }
+      />
       <div className="Cards">
         {/*To Do List*/}
           <CardList
