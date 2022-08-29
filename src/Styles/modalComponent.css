@@ -49,16 +49,35 @@
   background-color: #fff7d9ff;
   border-radius: .5rem;
   padding-left: 0.5rem;
-  width: 10rem;
+  width: 8.75rem;
+}
+
+.modalList > p:hover{
+  outline: #CCC5AD solid;
 }
 
 .modalList > ul{
-  position: relative;
+  position: absolute;
+  padding: 0;
   background-color: #fff7d9ff;
   border-radius: .5rem;
-  padding-left: .5rem;
-  list-style-type: none;
-  margin: 1px 1px;
+  list-style: none;
+  margin: -1rem 0 0 0;
+  width: 9.25rem;
+}
+
+.modalList > ul > li{
+  padding-left: 0.5rem;
+  border-radius: .5rem;
+}
+
+.selected{
+  background-color: #FFE68C;
+}
+
+.modalList > ul > li:hover{
+  background-color: #CCC5AD;
+  cursor: pointer;
 }
 
 .modal > input {
