@@ -18,16 +18,9 @@ function App() {
 
   const handleClick = () => {
     if (task === "") return;
-    const getRandomIntInclusive = (min, max) => {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    };
+    const currentDate = Date.now();
     const taskObject = {
-      id: `${task.length}-${task.slice(0, 3)}-${getRandomIntInclusive(
-        0,
-        task.length,
-      )}-${getRandomIntInclusive(1, task.length)}`,
+      id: `${task}-${currentDate}`,
       value: task,
       progress: "To Do",
       readed: readedValue,
